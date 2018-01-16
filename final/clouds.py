@@ -48,6 +48,13 @@ for i in range(200):
     s = [x, y, r, r]
     stars.append(s)
 
+drop = []
+for i in range(200):
+    x = random.randrange(0, 800)
+    y = random.randrange(100,400)
+    r = random.randrange(1, 5) 
+    d = [x, y, r, r]
+    drop.append(d)
    
 # Game loop
 done = False
@@ -69,6 +76,8 @@ while not done:
     for s in stars:
         pygame.draw.ellipse(screen, YELLOW, s)
 
+    
+
     ''' moon '''
     pygame.draw.ellipse(screen, YELLOW, [575, 75, 100, 100])
 
@@ -89,6 +98,11 @@ while not done:
 
     ''' grass '''
     pygame.draw.rect(screen, GREEN, [0, 400, 800, 200])
+
+    ''' rain '''
+
+    for d in drop:
+        pygame.draw.ellipse(screen, BLUE, d)
     
 
     ''' fence '''
